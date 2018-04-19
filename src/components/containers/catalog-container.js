@@ -7,17 +7,10 @@ class CatalogPrdsContainer extends Component{
 	constructor(props){
 		super(props);		
 		this.state = {
-			qs: {catName:'', subCatName:''},
-			catName: ''
+			qs: {catName:'', subCatName:''}			
 		}
 		
-	}
-	tick() {
-	    this.setState({
-	      catName: 'name'
-	    });
-	    console.log(this.state.catName);
-	}
+	}	
 
 	componentDidMount(){
 
@@ -25,8 +18,7 @@ class CatalogPrdsContainer extends Component{
 			
 		}else if(this.props.match.params.category !== '' && this.props.match.params.category !== undefined){
 			this.setState(prevState => { return { qs: {...prevState.qs, catName: 'name'} } });
-			this.tick();
-			
+			console.log(this.state.qs);
 			catalogPrdsAPI.getCatalogProducts(this.state.qs);
 		}else{
 
